@@ -10,7 +10,15 @@ notes.get('/', (req, res) => {
 
 // POST route to to create a new note
 notes.post('/', (req, res) => {
-    res.send('POST NOTE');
+
+    // Create new note
+    const newNote = {
+        "title": req.body.title,
+        "text": req.body.text
+    };
+
+    // Add new note to database
+    readAndAppend('./db/db.json', newNote);
 });
 
 // Export
