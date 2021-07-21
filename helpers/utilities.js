@@ -13,8 +13,23 @@ const writeToFile = (file, info) => {
 };
 
 // Function 'readAndAppend' will append new data to existing JSON data
-const readAndAppend = () => {
-    console.log('read and append');
+const readAndAppend = (file, info) => {
+    
+    fs.readFile(file, 'utf8', (err, data) => {
+
+        if (err) {
+
+            console.error(err);
+        } else {
+
+            // Append new data to old data
+            let content = JSON.parse(data);
+            content.push(info);
+
+            // Write to file
+            writeToFile(file, content);
+        }
+    });
 };
 
 // Export
