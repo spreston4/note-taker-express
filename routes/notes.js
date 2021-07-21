@@ -1,6 +1,7 @@
 // Establish required dependancies
 const notes = require('express').Router();
 const { readFromFile, writeToFile, readAndAppend} = require('../helpers/utilities');
+const { v4: uuidv4 } = require('uuid');
 
 // GET route to retrieve all notes
 notes.get('/', (req, res) => {
@@ -14,11 +15,15 @@ notes.post('/', (req, res) => {
     // Create new note
     const newNote = {
         "title": req.body.title,
-        "text": req.body.text
+        "text": req.body.text,
+        "id": uuidv4()
     };
 
     // Add new note to database
     readAndAppend('./db/db.json', newNote);
+
+    // Send success message / refresh page to load not in note list
+    res.json('Note saved!');
 });
 
 // Export
