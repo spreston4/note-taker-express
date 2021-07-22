@@ -1,11 +1,11 @@
 // Establish required dependancies
 const notes = require('express').Router();
-const { readFromFile, writeToFile, readAndAppend} = require('../helpers/utilities');
+const { readFromFile, writeToFile, readAndAppend } = require('../helpers/utilities');
 const { v4: uuidv4 } = require('uuid');
 
 // GET route to retrieve all notes
 notes.get('/', (req, res) => {
-    
+
     readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });
 
@@ -24,11 +24,11 @@ notes.post('/', (req, res) => {
 
     // Send success message / refresh page to load not in note list
     res.json('Note saved!');
-
 });
 
+// DELETE route to delete a specific note
 notes.delete('/:id', (req, res) => {
-    
+
     // Get tip id
     const delId = req.params.id;
 
