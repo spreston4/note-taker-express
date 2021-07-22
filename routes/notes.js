@@ -30,14 +30,23 @@ notes.post('/', (req, res) => {
 notes.delete('/:id', (req, res) => {
     
     // Get tip id
+    const delId = req.params.id;
 
     // Get info from db
+    readFromFile('./db/db.json')
+        .then((data) => JSON.parse(data))
 
-    // Create array & filter for id to be deleted
+        .then((results) => {
 
-    // Write filtered array to db
+            // Create array & filter for id to be deleted
+            const arr = results.filter((note) => note.id !== delId);
 
-    // Send success & refresh page
+            // Write filtered array to db
+            writeToFile('./db/db.json', arr);
+
+            // Send success & refresh page
+            res.json('Note deleted.');
+        });
 });
 
 // Export
