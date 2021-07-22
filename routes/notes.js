@@ -24,6 +24,20 @@ notes.post('/', (req, res) => {
 
     // Send success message / refresh page to load not in note list
     res.json('Note saved!');
+
+});
+
+notes.delete('/:id', (req, res) => {
+    
+    // Get tip id
+
+    // Get info from db
+
+    // Create array & filter for id to be deleted
+
+    // Write filtered array to db
+
+    // Send success & refresh page
 });
 
 // Export
