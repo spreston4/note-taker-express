@@ -4,7 +4,7 @@
 
 Note Taker Express is a full-stack note-taking application, built with Express.js, that will store your thoughts and to-do's, so that your brain doesn't have to. Users are able to save, view, and delete notes at any time by accessing and writing data to a JSON file.
 
-[Deployed Application](https://github.com/spreston4/)
+[Deployed Application](https://note-taker-express-spreston4.herokuapp.com/)
 
 [GitHub Repo](https://github.com/spreston4/note-taker-express)
 
@@ -18,6 +18,22 @@ Built in Visual Studio with:
 * Utils
 
 ## How To
+
+When the application loads, the user is presented with the following landing screen. Press the 'Get Started' button to start saving notes.
+
+![Landing](./public/assets/images/landing.PNG)
+
+The user is then presented with a list of their previous notes on the left of the screen, and an option to create a new note on the right sode of the screen. Users can delete previous notes but clicking the red trash can icon next to the note they wish to delete.
+
+![Default View](./public/assets/images/notes-one.PNG)
+
+To save a new note, enter a title and body for the new note. Once the required information is entered, a save icon appears in the top right of the screen. Pressing the save icon will save the new note to the json database, and populate the note title to the note list.
+
+![New Note](./public/assets/images/note-new.PNG)
+
+To view a previously stored note, click the name of the note you wish to view from the notes list. The selected note is then displayed to the right side of the screen. From this view, click the plus icon to create a new note.
+
+![View Note](./public/assets/images/notes-view.PNG)
 
 
 ## User Story
